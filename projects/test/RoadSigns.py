@@ -40,4 +40,3 @@ for eachSign in SIGNS:
     eval(cmd)
 
 top.mainloop()
-#db_initialize(TABLES)
