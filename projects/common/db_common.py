@@ -1,3 +1,12 @@
+#******************************
+#
+# NAME      : db_common.py
+# AUthOR    : Chris Anderson
+# EMAIL     : chris.anderson@andersonleatherworks.com
+# DATE      : 08/18/2021
+# PRUPOSE   : This file contains all the common database modules
+#
+#******************************
 import mysql.connector
 from mysql.connector.cursor import MySQLCursorBufferedDict
 from mysql.connector import errorcode
