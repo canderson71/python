@@ -11,7 +11,7 @@
 # Imports
 import logging as lwlog
 from datetime import date
-
+from common_package.common_modules import common
 class lwlogging:
 # Globals
     global lwLogName
@@ -20,14 +20,14 @@ class lwlogging:
     def __init__(self):
         global lwLogName
 
-    def log_begin(name):
+    def log_begin(name, log):
         global lwLogName
         print("log_begin")
         # create logger
-        today = date.today()
-        dt_string = today.strftime("%m/%d/%Y %H:%M:%S")
-        file_date = today.strftime("%Y%m%d")
-        lwLogName = 'logging/lw-costing-log-%s.log'%(file_date)
+        dt_string = common.get_currDate('%m/%d/%Y')
+        tm_string = common.get_currtime('%H:%M:%S')
+        lwLogName = log
+        
         lwlog.basicConfig(filename=lwLogName, filemode='a', format='%(asctime)s - %(message)s',datefmt='%m/%d/%Y %I:%M:%S %p')
         logger = lwlog.getLogger('lwcosting')
         logger.setLevel(lwlog.DEBUG)
