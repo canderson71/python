@@ -47,12 +47,9 @@ class tkcommon:
         label_widget = tk.Label(self, text=label_text, font=font2use, justify="left")
         return label_widget
 
-    def tk_msgbxQOkCancel(msg):
-        okCancel = msgbx.askokcancel('Recreate Database and Tables', msg, default='cancel', icon='question')
-        return okCancel
-
-    def tk_msgbxWOkCancel(msg):
-        okCancel = msgbx.askokcancel('Recreate Database and Tables', msg, default='cancel', icon='warning')
+    def tk_msgbxAskOkCancel(msg, level):
+        bxtitle = level
+        okCancel = msgbx.askokcancel(bxtitle.capitalize(), msg, default='cancel', icon=level)
         return okCancel
 
     def tk_title(self, appTitle, Version):
