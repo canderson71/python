@@ -21,9 +21,6 @@ class common:
    def deleteAllButCurrent(currLogFileName, fPath, fExt):
       func = 'deleteAllButCurrent'
       file_path = fPath+currLogFileName+fExt
-      print(currLogFileName)
-      print(fPath)
-      print(fExt)
 
       alwlog.info('%s.%s'%(module,func), 'Preparing to delete all files except %s'%(currLogFileName))
       if os.path.isfile(file_path):
