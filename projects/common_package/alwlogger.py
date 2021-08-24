@@ -12,14 +12,14 @@
 import logging as alwlog
 from datetime import datetime as date
 
-class alwlogging:
+class ALWLogging:
 # Globals
     global __alwLogName
     global __spaces1
     global __spaces2
 
     # Beging Logging
-    def log_begin(name, log):
+    def _logbegin(name, log):
         global __alwLogName
         global __spaces1
         global __spaces2
@@ -39,7 +39,7 @@ class alwlogging:
         logger.info('*  Starting %s'%(name))
 
     # End Logging
-    def log_end(name):
+    def _logend(name):
         alwlog.basicConfig(filename=__alwLogName, filemode='a', format='%(asctime)s - %(message)s',datefmt='%m/%d/%Y %I:%M:%S %p')
         logger = alwlog.getLogger(__alwLogName)
         logger.setLevel(alwlog.DEBUG)
@@ -50,7 +50,7 @@ class alwlogging:
         logger.info('**********************************************')
 
     # Debug
-    def debug(name ,s):
+    def _debug(name ,s):
         logger = alwlog.getLogger(__alwLogName)
         alwlog.basicConfig(filename=__alwLogName, filemode='a', format='%(asctime)s - %(message)s',datefmt='%m/%d/%Y %I:%M:%S %p')
         logger.setLevel(alwlog.DEBUG)
@@ -58,15 +58,15 @@ class alwlogging:
         logger.debug( '*    DEBUG : %s:\n%s*%s%s'%(name, __spaces1, __spaces2, s))
 
     # Info
-    def info(name ,s):
+    def _info(name ,s):
         logger = alwlog.getLogger(__alwLogName)
-        alwlog.basicConfig(filename=__alwLogName, filemode='a', format='%(asctime)s - %(message)s',datefmt='%m/%d/%Y %I:%M:%S %p')
+        alwlog.basicConfig(filename=__alwLogName, filemode='a', format='%(asctime)s -** %(funcName)s **- %(message)s',datefmt='%m/%d/%Y %I:%M:%S %p')
         logger.setLevel(alwlog.DEBUG)
         logger.info('*')
         logger.info( '*    INFO : %s:\n%s*%s%s'%(name, __spaces1, __spaces2, s))
 
     # Warning
-    def warn(name ,s):
+    def _warn(name ,s):
         logger = alwlog.getLogger(__alwLogName)
         alwlog.basicConfig(filename=__alwLogName, filemode='a', format='%(asctime)s - %(message)s',datefmt='%m/%d/%Y %I:%M:%S %p')
         logger.setLevel(alwlog.DEBUG)
@@ -75,12 +75,12 @@ class alwlogging:
         logger.warning('*----------------------------------')
 
     # Critical
-    def crit(name ,s):
+    def _crit(name ,s):
         logger = alwlog.getLogger(__alwLogName)
-        alwlog.basicConfig(filename=__alwLogName, filemode='a', format='%(asctime)s - %(message)s',datefmt='%m/%d/%Y %I:%M:%S %p')
+        alwlog.basicConfig(filename=__alwLogName, filemode='a', format='%(asctime)s - %(lineno)d - %(message)s ',datefmt='%m/%d/%Y %I:%M:%S %p')
         logger.setLevel(alwlog.DEBUG)
         logger.critical('*++++++++++++++++++++++++++++++++++')
-        logger.critical( '*    CRITICAL : %s:\n%s*%s%s'%(name, __spaces1, __spaces2, s))
+        logger.critical( '*    CRITICAL : %s:\n%s* %s%s'%(name, __spaces1, __spaces2, s))
         logger.critical('*++++++++++++++++++++++++++++++++++')
 
 # Main Logging Section            
