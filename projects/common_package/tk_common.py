@@ -59,3 +59,8 @@ class TKCommon:
         self.menubar = tk.Menu()
         self.configure(menu=self.menubar)
         return self.menubar
+    
+# Main TK Section            
+if __name__ == '__main__':
+    print ('This is the tk_common.py file' ) 
+    
