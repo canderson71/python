@@ -16,6 +16,10 @@ import sys
 import os
 import wx
 
+class Dialog(wx.Dialog):
+    def __init__(self, parent):
+        
+
 # Main WX Section            
 if __name__ == '__main__':
     print ('This is the wx_common.py file' ) 
